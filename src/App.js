@@ -1,13 +1,18 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+import Button from './Button'
 
-function App({ text }) {
-  const text = 'Hello World'
+function App() {
+  const [player, setPlayer] = useState('X')
+
+  const squares = Array.from({ length: 9 }, (item, index) => (
+    <Button key={index} player={player} setPlayer={setPlayer}></Button>
+  ))
   return (
-    <div className="App">
-      <button >{text}</button>
+    <div id="App">
+      <div className="square-container">{squares}</div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
